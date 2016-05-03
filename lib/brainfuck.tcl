@@ -176,6 +176,14 @@ proc ::brainfuck::, {} {
 proc ::brainfuck::. {} {
     variable dp
     variable tape
+
+    #
+    # If position at tape does not exists, create it
+    #
+    
+    if {![dict exists tape $dp]} {
+	dict set tape $dp 0
+    }
     
     puts -nonewline [format %c [dict get $tape $dp]]
 }
