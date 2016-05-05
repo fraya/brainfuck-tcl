@@ -24,7 +24,9 @@ try {
 
     set program  [brainfuck::read_program $filename]
     set brackets [brainfuck::make_index_brackets $program]
-    
+
+    fconfigure stdout -buffering none
+    fconfigure stdin  -buffering none
     brainfuck::run $program $brackets 
 
     exit 0
